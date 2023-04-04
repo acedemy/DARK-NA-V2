@@ -1062,7 +1062,7 @@ Type *surrender* to surrender and admit defeat`
             break
 
             case 'guess': {
-                if (!args.join(" ")) throw `Example : ${prefix + command} song`
+                if (!args.join(" ")) throw `Example : ${prefix + command} `
 if (args[0] === "song") {
 if (tebaklagu.hasOwnProperty(m.sender.split('@')[0])) throw "There are still unfinished sessions!"
 let anugas = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/main/guessSong.json')
@@ -1879,37 +1879,72 @@ if (!text) return m.reply(`Example : ${prefix + command} Stay jb`)
             })
             }
         break    
-        case 'song':{
-        if (!text) return m.reply(`Example : ${prefix + command} stay jb`)
-            let ytslagu = require("youtube-yts")
-            let lagusearch = await ytslagu(text)
-            listSerch = []
-            teskd = `Searched Song: ${text}\n`
-            for (let i of lagusearch.all) {
-                listSerch.push({
-                    title: i.title,
-                    rowId: `${prefix}ytmp3 ${i.url}`,
-                    description: `Duration: ${i.timestamp}`
-                })
-            }
-            const sections = [
-                {
-                    title: "Top " + lagusearch.all.length + " songs that matched search result",
-                    rows: listSerch
-                }
-            ]
-            const listMessage = {
-                text: teskd,
-                footer: botname,
-                title: ``,
-                buttonText: "Songs",
-                mentions: parseMention(teskd), sections
-            }
-            return XeonBotInc.sendMessage(m.chat, listMessage, {
-                quoted: m
-            })
-            }
-            break
+        // case 'song':{
+        // if (!text) return m.reply(`Example : ${prefix + command} stay jb`)
+        //     let ytslagu = require("youtube-yts")
+        //     let lagusearch = await ytslagu(text)
+        //     listSerch = []
+        //     teskd = `Searched Song: ${text}\n`
+        //     for (let i of lagusearch.all) {
+        //         listSerch.push({
+        //             title: i.title,
+        //             rowId: `${prefix}ytmp3 ${i.url}`,
+        //             description: `Duration: ${i.timestamp}`
+        //         })
+        //     }
+        //     const sections = [
+        //         {
+        //             title: "Top " + lagusearch.all.length + " songs that matched search result",
+        //             rows: listSerch
+        //         }
+        //     ]
+        //     const listMessage = {
+        //         text: teskd,
+        //         footer: botname,
+        //         title: ``,
+        //         buttonText: "Songs",
+        //         mentions: parseMention(teskd), sections
+        //     }
+        //     return XeonBotInc.sendMessage(m.chat, listMessage, {
+        //         quoted: m
+        //     })
+        //     }
+        //     break
+        case 'song': {
+  reply(mess.wait)
+  if (!text) throw `Example : ${prefix + command} story wa anime`
+  let yts = require("yt-search")
+  let search = await yts(text)                   
+let sections = []   
+let listmenu = [`ytmp4 ${search.all[0].url}`,`ytmp3 ${search.all[1].url}`,`ytmp4 ${search.all[2].url}`,`ytmp3 ${search.all[3].url}`,`ytmp4 ${search.all[4].url}`,`ytmp3 ${search.all[5].url}`,`ytmp4 ${search.all[6].url}`,`ytmp3 ${search.all[7].url}`,`ytmp4 ${search.all[8].url}`,`ytmp3 ${search.all[9].url}`,`ytmp4 ${search.all[10].url}`,`ytmp3 ${search.all[11].url}`,`ytmp4 ${search.all[12].url}`,`ytmp3 ${search.all[13].url}`,`ytmp4 ${search.all[14].url}`,`ytmp3 ${search.all[15].url}`,`ytmp4 ${search.all[16].url}`,`ytmp3 ${search.all[17].url}`,`ytmp4 ${search.all[18].url}`,`ytmp3 ${search.all[19].url}`]
+      let listmenuu = [`VIDEO MP4⬤: ${search.all[0].title}`,`SONG MP3⬤: ${search.all[1].title}`,`VIDEO MP4⬤: ${search.all[2].title}`,`SONG MP3⬤: ${search.all[3].title}`,`VIDEO MP4⬤: ${search.all[4].title}`,`SONG MP3⬤: ${search.all[5].title}`,`VIDEO MP4⬤: ${search.all[6].title}`,`SONG MP3⬤: ${search.all[7].title}`,`VIDEO MP4⬤: ${search.all[8].title}`,`SONG MP3⬤: ${search.all[9].title}`,`VIDEO MP4⬤: ${search.all[10].title}`,`SONG MP3⬤: ${search.all[11].title}`,`VIDEO MP4⬤: ${search.all[12].title}`,`SONG MP3⬤: ${search.all[13].title}`,`VIDEO MP4⬤: ${search.all[14].title}`,`SONG MP3⬤: ${search.all[15].title}`,`VIDEO MP4⬤: ${search.all[16].title}`,`SONG MP3⬤: ${search.all[17].title}`,`VIDEO MP4⬤: ${search.all[18].title}`,`SONG MP3⬤: ${search.all[19].title}`]
+      let listmenuuu = [`\n${search.all[0].description}`,`\n${search.all[1].description}`,`\n${search.all[2].description}`,`\n${search.all[3].description}`,`\n${search.all[4].description}`,`\n${search.all[5].description}`,`\n${search.all[6].description}`,`\n${search.all[7].description}`,`\n${search.all[8].description}`,`\n${search.all[9].description}`,`\n${search.all[10].description}`,`\n${search.all[11].description}`,`\n${search.all[12].description}`,`\n${search.all[13].description}`,`\n${search.all[14].description}`,`\n${search.all[15].description}`,`\n${search.all[16].description}`,`\n${search.all[17].description}`,`\n${search.all[18].description}`,`\n${search.all[19].description}`]
+      let nombor = 1
+      let startnum = 0
+      let startnumm = 0
+      for (let x of listmenu) {
+      const list = {title: 'RESULT NUMBER ' + nombor++,
+      rows: [
+         {
+          title: `${listmenuu[startnum++]}`,
+          description: `${listmenuuu[startnumm++]}`,
+          rowId: `${prefix}${x}`
+}, 
+]
+}
+sections.push(list)   
+}
+const sendm =  ZimBotInc.sendMessage(
+m.chat, 
+{
+text: "\n\n*_DONE SCRAPING DATA_*",
+footer: botname,
+title: `HERE IS YOUR RESULTS CHOMIE FROM *${text}* _select song or video below_`,
+buttonText: "CLICK HERE",
+sections
+}, { quoted : m })
+}
+break
         
     case 'play': case 'ytplay':{
                 if (!text) throw `Example : ${prefix + command} anime whatsapp status`
@@ -7857,8 +7892,6 @@ const buttonMessage = {
 ╠${prefix}ytmp3 [url|quality]
 ╠${prefix}ytmp4 [url|quality]
 ╠${prefix}gitclone [repo link]
-╠${prefix}audio (pleas using) *
-╠${prefix}video2 (pleas using) *
 ╠═══════✪ SEARCH 	
 ╠${prefix}play [query]
 ╠${prefix}song [query]
