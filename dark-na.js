@@ -691,39 +691,39 @@ XeonBotInc.sendMessage(from, {text:`\`\`\`「 Link Detected 」\`\`\`\n\n@${m.se
 }
 
         //auto reply by xeon
-  // if (Autoreply)
-  //       for (let anji of xeonysticker){
-		// 		if (budy === anji){
-		// 			result = fs.readFileSync(`./XeonMedia/sticker/${anji}.webp`)
-		// 			XeonBotInc.sendMessage(m.chat, { sticker: result }, { quoted: m })
-		// 			}
-		// 	}
-		// 	  if (Autoreply)
-		// 	for (let anju of xeonyaudio){
-		// 		if (budy === anju){
-		// 			result = fs.readFileSync(`./XeonMedia/audio/${anju}.mp3`)
-		// 			XeonBotInc.sendMessage(m.chat, { audio: result, mimetype: 'audio/mp4', ptt: true }, { quoted: m })     
-		// 			}
-		// 	}
-		// 	  if (Autoreply)
-		// 	for (let anjh of xeonyimage){
-		// 		if (budy === anjh){
-		// 			result = fs.readFileSync(`./XeonMedia/image/${anjh}.jpg`)
-		// 			XeonBotInc.sendMessage(m.chat, { image: result }, { quoted: m })
-		// 			}
-		// 	}
-		// 	  if (Autoreply) 
-		// 			for (let anjh of xeonyvideo){
-		// 		if (budy === anjh){
-		// 			result = fs.readFileSync(`./XeonMedia/video/${anjh}.mp4`)
-		// 			XeonBotInc.sendMessage(m.chat, { video: result }, { quoted: m })
-		// 			}
-		// 		  }
+  if (Autoreply)
+        for (let anji of xeonysticker){
+				if (budy === anji){
+					result = fs.readFileSync(`./XeonMedia/sticker/${anji}.webp`)
+					XeonBotInc.sendMessage(m.chat, { sticker: result }, { quoted: m })
+					}
+			}
+			  if (Autoreply)
+			for (let anju of xeonyaudio){
+				if (budy === anju){
+					result = fs.readFileSync(`./XeonMedia/audio/${anju}.mp3`)
+					XeonBotInc.sendMessage(m.chat, { audio: result, mimetype: 'audio/mp4', ptt: true }, { quoted: m })     
+					}
+			}
+			  if (Autoreply)
+			for (let anjh of xeonyimage){
+				if (budy === anjh){
+					result = fs.readFileSync(`./XeonMedia/image/${anjh}.jpg`)
+					XeonBotInc.sendMessage(m.chat, { image: result }, { quoted: m })
+					}
+			}
+			  if (Autoreply) 
+					for (let anjh of xeonyvideo){
+				if (budy === anjh){
+					result = fs.readFileSync(`./XeonMedia/video/${anjh}.mp4`)
+					XeonBotInc.sendMessage(m.chat, { video: result }, { quoted: m })
+					}
+				  }
 
       // Mute Chat
-      // if (db.data.chats[m.chat].mute && !isAdmins && !isCreator) {
-      // return
-      // }
+      if (db.data.chats[m.chat].mute && !isAdmins && !isCreator) {
+      return
+      }
 
 //emoji 
 const emote = (satu, dua) => {
@@ -1879,7 +1879,7 @@ if (!text) return m.reply(`Example : ${prefix + command} Stay jb`)
             })
             }
         break    
-        case 'song2':{
+        case 'song':{
         if (!text) return m.reply(`Example : ${prefix + command} stay jb`)
             let ytslagu = require("youtube-yts")
             let lagusearch = await ytslagu(text)
@@ -1917,8 +1917,8 @@ if (!text) return m.reply(`Example : ${prefix + command} Stay jb`)
                 let search = await yts(text)
                 let anulay = search.videos[Math.floor(Math.random() * search.videos.length)]
                 let buttons = [
-                    {buttonId: `song ${anulay.url}`, buttonText: {displayText: '♫ Audio'}, type: 1},
-                    {buttonId: `video2 ${anulay.url}`, buttonText: {displayText: '► Video'}, type: 1}
+                    {buttonId: `playmp3 ${anulay.url}`, buttonText: {displayText: '♫ Audio'}, type: 1},
+                    {buttonId: `playmp4 ${anulay.url}`, buttonText: {displayText: '► Video'}, type: 1}
                 ]
 
                 let buttonMessage = {
@@ -1941,14 +1941,12 @@ ${themeemoji} Url : ${anulay.url}`,
                 XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-case 'song': //credit: Ray Senpai ❤️ https://github.com/EternityBots/Nezuko
+case 'audio': //credit: Ray Senpai ❤️ https://github.com/EternityBots/Nezuko
 if (!text) throw `Example : ${prefix + command} anime whatsapp status`
 const xeonplaymp3 = require('./lib/ytdl2')
 let yts = require("youtube-yts")
         let search = await yts(text)
         let anup3k = search.videos[0]
-                let buttonMessage = {
-                
 const pl= await xeonplaymp3.mp3(anup3k.url)
 await XeonBotInc.sendMessage(m.chat,{
     audio: fs.readFileSync(pl.path),
@@ -1964,7 +1962,7 @@ await XeonBotInc.sendMessage(m.chat,{
         }
 
     },
-},{quoted:m}
+},{quoted:m})
 await fs.unlinkSync(pl.path)
 break
 case 'video2': //credit: Ray Senpai ❤️ https://github.com/EternityBots/Nezuko
@@ -4661,7 +4659,9 @@ media = await XeonBotInc.downloadAndSaveMediaMessage(quoted, "volume")
 if (isQuotedAudio) {
 rname = getRandom('.mp3')
 exec(`ffmpeg -i ${media} -filter:a volume=${args[0]} ${rname}`, (err, stderr, stdout) => {
-fs.unlinkSync(media)
+fs.
+
+unlinkSync(media)
 if (err) return m.reply('Error!')
 jadie = fs.readFileSync(rname)
 XeonBotInc.sendMessage(from, {audio:jadie, mimetype: 'audio/mp4', ptt: true}, {quoted: m})
@@ -7532,8 +7532,6 @@ case 'alive': case 'panel': case 'list': case 'menu': case 'help': case '?': {
   XeonBotInc.sendMessage(m.chat, buttonMessage, {quoted: fkontak})
   }
  break
-
- 
             break
             case 'command': {
 	const sections = [{
