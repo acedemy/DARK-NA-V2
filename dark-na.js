@@ -7857,6 +7857,8 @@ const buttonMessage = {
 ╠${prefix}ytmp3 [url|quality]
 ╠${prefix}ytmp4 [url|quality]
 ╠${prefix}gitclone [repo link]
+╠${prefix}audio (pleas using) *
+╠${prefix}video2 (pleas using) *
 ╠═══════✪ SEARCH 	
 ╠${prefix}play [query]
 ╠${prefix}song [query]
