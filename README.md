@@ -1,6 +1,6 @@
 # DARK-NA-V2
 THIS IS WHATSAPP BOT
-
+# <a href = "https://github.com/acedemy/DARK-NA-V2/fork"><h4>fork this </h4></a>
 # <h3> SCANE QR CODE </h3><br>
 
 <a href = "https://replit.com/@Nilambara/DARK-NA-V3"><img src ="https://tse2.mm.bing.net/th?id=OIP.s28YVcDqC-PkpKoqKrLjUAAAAA&pid=Api&P=0" width="400" ></a>
